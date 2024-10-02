@@ -65,7 +65,7 @@ jobs:
         name: artifacts
     - name: Deploy to CloudHub Dev env 
       env:
-        anypointUsername: $(( secrets. ANYPOINT_USERNAME }) 
+        anypointUsername: ${{ secrets. ANYPOINT_USERNAME }}
         anypointPassword: ${{ secrets.ANYPOINT_PASSWORD }}
       run:
         artifactName=$(ls *.jar | head -1)
