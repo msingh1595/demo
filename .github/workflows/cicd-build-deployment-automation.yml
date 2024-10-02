@@ -65,9 +65,9 @@ jobs:
         name: artifacts
     - name: Deploy to CloudHub Dev env 
       env:
-        anypointUsername: ${{ secrets. ANYPOINT_USERNAME }}
+        anypointUsername: ${{ secrets.ANYPOINT_USERNAME }}
         anypointPassword: ${{ secrets.ANYPOINT_PASSWORD }}
-      run:
+      run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypointUsername" -Danypoint.password="$anypointPassword" -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Sandbox -Deloudhub.application.name=cicd-app-02102024
   
