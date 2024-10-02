@@ -66,8 +66,8 @@ jobs:
     - name: Deploy to CloudHub Dev env 
       env:
         anypointUsername: $(( secrets. ANYPOINT_USERNAME }) 
-        anypointPassword: $00 secrets.ANYPOINT_PASSWORD 7}
+        anypointPassword: ${{ secrets.ANYPOINT_PASSWORD }}
       run:
-        artifactName=$(1s *-jar l head -1)
-        mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypointUsername" -Danypoint-password=$anypointPassword* -DworkerType-MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment-Dev -Deloudhub.application.name=cicd-app-02102024
+        artifactName=$(ls *.jar | head -1)
+        mvn deploy -DmuleDeploy -Dmule.artifact=$artifactName -Danypoint.username="$anypointUsername" -Danypoint.password="$anypointPassword* -DworkerType=MICRO -Dworkers=1 -Dregion=us-east-2 -Denvironment=Dev -Deloudhub.application.name=cicd-app-02102024
   
